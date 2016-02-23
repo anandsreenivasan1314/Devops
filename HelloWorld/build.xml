@@ -65,7 +65,7 @@
     <jar jarfile="${dist.home}/${app.name}.war"
          basedir="${work.home}"/>
   </target>
-  <target name="nexus"depends="dist"
+  <target name="nexus"  depends="dist"
 		description="Copy WAR file To Nexus">
     <exec executable="curl" outputproperty="noOfFiles">
          <arg value="--upload-file" />

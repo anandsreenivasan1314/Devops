@@ -62,14 +62,14 @@
   </target>
   <target name="dist" depends="compile"
           description="Create WAR file for binary distribution">
-    <jar jarfile="${dist.home}/${app.name}-${DSTAMP}.war"
+    <jar jarfile="${dist.home}/${app.name}-1.war"
          basedir="${work.home}"/>
   </target>
   <target name="nexus"  depends="dist"
 		description="Copy WAR file To Nexus">
     <exec executable="curl" outputproperty="noOfFiles">
          <arg value="--upload-file" />
-         <arg value="${dist.home}/${app.name}-${DSTAMP}.war" />
+         <arg value="${dist.home}/${app.name}-1.war" />
          <arg value="-u" />
          <arg value="admin:admin123" />
          <arg value="-v" />

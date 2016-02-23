@@ -68,5 +68,9 @@
     <jar jarfile="${dist.home}/${app.name}.war"
          basedir="${work.home}"/>
   </target>
-
+  <target name="copy.from.nexus" depends="dist"
+		description="Copy WAR file To Nexus">
+   <echo message="copying to nexus"/>    
+   <put src="${dist.home}/${app.name}.war" dest="http://unixserver1.local:8081/nexus/content/repositories/snapshots/${app.name}/" />
+  </target>
 </project> 

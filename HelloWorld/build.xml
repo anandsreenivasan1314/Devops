@@ -31,7 +31,7 @@
     </fileset>
   </path>
 
-  <target name="all" depends="clean,compile,dist"
+  <target name="all" depends="clean,compile,dist,nexus"
           description="Clean work dirs, then compile and create a WAR"/>
 
   <target name="clean"
@@ -59,16 +59,13 @@
     <copy  todir="${work.home}/WEB-INF/classes">
       <fileset dir="${src.home}" excludes="**/*.java"/>
     </copy>
-
   </target>
-
-
   <target name="dist" depends="compile"
           description="Create WAR file for binary distribution">
     <jar jarfile="${dist.home}/${app.name}.war"
          basedir="${work.home}"/>
   </target>
-  <target name="copy.from.nexus" depends="dist"
+  <target name="nexus" depends="dist"
 		description="Copy WAR file To Nexus">
    <echo message="copying to nexus"/>    
    <put src="${dist.home}/${app.name}.war" dest="http://unixserver1.local:8081/nexus/content/repositories/snapshots/${app.name}/" />

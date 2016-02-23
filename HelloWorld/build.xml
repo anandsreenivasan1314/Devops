@@ -1,8 +1,6 @@
 <project name="My Project" default="help" basedir=".">
   <!-- Define the properties used by the build -->
   <property name="app.name"      value="hello"/>
-  
-  <property name="time.stmp" value="${DSTAMP}" />
   <property name="tcserver.home" value="${basedir}" />
   <property name="work.home"    value="${basedir}/work"/>
   <property name="dist.home"     value="${basedir}/dist"/>
@@ -64,14 +62,14 @@
   </target>
   <target name="dist" depends="compile"
           description="Create WAR file for binary distribution">
-    <jar jarfile="${dist.home}/${app.name}-${time.stmp}.war"
+    <jar jarfile="${dist.home}/${app.name}-${DSTAMP}.war"
          basedir="${work.home}"/>
   </target>
   <target name="nexus"  depends="dist"
 		description="Copy WAR file To Nexus">
     <exec executable="curl" outputproperty="noOfFiles">
          <arg value="--upload-file" />
-         <arg value="${dist.home}/${app.name}-${time.stmp}.war" />
+         <arg value="${dist.home}/${app.name}-${DSTAMP}.war" />
          <arg value="-u" />
          <arg value="admin:admin123" />
          <arg value="-v" />

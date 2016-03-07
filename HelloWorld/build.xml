@@ -3,7 +3,7 @@
   <property name="app.name"      value="hello"/>
   <property name="tcserver.home" value="${basedir}" />
   <property name="work.home"    value="${basedir}/work"/>
-  <property name="dist.home"     value="${basedir}/dist"/>
+  <property name="dist.home"     value="${basedir}/Docker"/>
   <property name="src.home"      value="${basedir}/src"/>
   <property name="web.home"      value="${basedir}/web"/>
 

@@ -1,6 +1,6 @@
 FROM anandconsol/tomcat-7.0:V2
-WORKDIR /var/lib/jenkins/jobs/Git_Java_Project/workspace/HelloWorld/dist
-ADD . /opt/tomcat/webapps/Jenkin-Hello.war
+#WORKDIR /var/lib/jenkins/jobs/Git_Java_Project/workspace/HelloWorld/dist
+ADD ../dist/*.war /opt/tomcat/webapps/
 ENTRYPOINT /opt/tomcat/bin/startup.sh && /bin/bash
 
 

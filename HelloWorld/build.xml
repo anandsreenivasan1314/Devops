@@ -37,7 +37,7 @@
   <target name="clean"
           description="Delete old work and dist directories">
     <delete dir="${work.home}"/>
-    <delete dir="${dist.home}"/>
+    <!--delete dir="${dist.home}"/-->
   </target>
 
   <target name="prepare" depends="clean"
